@@ -13,7 +13,7 @@ Projeto desenvolvido para a disciplina de Programacao Web III.
 
 ## Funcionalidades planejadas
 
-- Cadastro, edicao, listagem e exclusao de filmes.
+- Cadastro, edição, listagem e exclusão de filmes.
 - Vinculo entre filme, categoria e usuario responsavel pelo cadastro.
 - Galeria de filmes para usuarios.
 - Filtros por ano e categoria.
