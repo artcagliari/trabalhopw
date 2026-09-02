@@ -12,7 +12,7 @@ class MovieRelationshipTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_movie_belongs_to_user_and_category(): void
+    public function test_filme_pertence_a_usuario_e_categoria(): void
     {
         $user = User::factory()->create();
         $category = Category::factory()->create();
@@ -26,7 +26,7 @@ class MovieRelationshipTest extends TestCase
         $this->assertTrue($movie->category->is($category));
     }
 
-    public function test_user_and_category_list_their_movies(): void
+    public function test_usuario_e_categoria_listam_seus_filmes(): void
     {
         $user = User::factory()->create();
         $category = Category::factory()->create();

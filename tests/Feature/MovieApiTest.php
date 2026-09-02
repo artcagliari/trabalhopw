@@ -14,7 +14,7 @@ class MovieApiTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_gallery_can_be_filtered_by_year_and_category(): void
+    public function test_galeria_pode_filtrar_por_ano_e_categoria(): void
     {
         $category = Category::factory()->create(['name' => 'Drama', 'slug' => 'drama']);
         $otherCategory = Category::factory()->create(['name' => 'Acao', 'slug' => 'acao']);
@@ -37,7 +37,7 @@ class MovieApiTest extends TestCase
             ->assertJsonPath('movies.0.id', $wantedMovie->id);
     }
 
-    public function test_movie_details_include_category_user_and_trailer(): void
+    public function test_detalhes_do_filme_mostram_categoria_usuario_e_trailer(): void
     {
         $user = User::factory()->create(['name' => 'Aluno Teste']);
         $category = Category::factory()->create(['name' => 'Suspense', 'slug' => 'suspense']);
@@ -60,7 +60,7 @@ class MovieApiTest extends TestCase
             ->assertJsonPath('movie.youtube_trailer_link', 'https://www.youtube.com/watch?v=m01YktiEZCw');
     }
 
-    public function test_logged_user_can_create_movie(): void
+    public function test_usuario_logado_pode_cadastrar_filme(): void
     {
         Storage::fake('public');
 
@@ -89,7 +89,7 @@ class MovieApiTest extends TestCase
         ]);
     }
 
-    public function test_logged_user_can_update_movie(): void
+    public function test_usuario_logado_pode_editar_filme(): void
     {
         Storage::fake('public');
 
@@ -123,7 +123,7 @@ class MovieApiTest extends TestCase
         ]);
     }
 
-    public function test_logged_user_can_delete_movie(): void
+    public function test_usuario_logado_pode_excluir_filme(): void
     {
         $user = User::factory()->create();
         $movie = Movie::factory()->create(['user_id' => $user->id]);
@@ -139,7 +139,7 @@ class MovieApiTest extends TestCase
         ]);
     }
 
-    public function test_guest_cannot_create_movie(): void
+    public function test_visitante_nao_pode_cadastrar_filme(): void
     {
         $response = $this->postJson('/api/admin/movies', []);
 

@@ -94,9 +94,6 @@ class MovieController extends Controller
         ]);
     }
 
-    /**
-     * @return array<string, mixed>
-     */
     private function validateMovie(Request $request, bool $creating = true): array
     {
         return $request->validate([
