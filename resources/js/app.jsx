@@ -161,12 +161,12 @@ function App() {
     }
 
     return (
-        <main className="min-h-screen bg-zinc-100 text-zinc-950">
+        <main className="min-h-screen text-zinc-950">
             <Header user={user} view={view} setView={setView} logout={logout} />
 
-            <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+            <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
                 {(notice || error) && (
-                    <div className={`mb-4 rounded border px-4 py-3 text-sm ${error ? 'border-red-300 bg-red-50 text-red-800' : 'border-emerald-300 bg-emerald-50 text-emerald-800'}`}>
+                    <div className={`mb-5 rounded border px-4 py-3 text-sm shadow-sm ${error ? 'border-red-300 bg-red-50 text-red-800' : 'border-emerald-300 bg-emerald-50 text-emerald-800'}`}>
                         {error || notice}
                     </div>
                 )}

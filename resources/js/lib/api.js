@@ -40,3 +40,22 @@ export function estiloDoCartaz(movie) {
 
     return cores[movie.id % cores.length];
 }
+
+export function linkDoTrailer(url) {
+    if (!url) {
+        return null;
+    }
+
+    const patterns = [
+        /youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/,
+        /youtube\.com\/embed\/([a-zA-Z0-9_-]+)/,
+        /youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/,
+        /youtu\.be\/([a-zA-Z0-9_-]+)/,
+    ];
+
+    const match = patterns
+        .map((pattern) => url.match(pattern))
+        .find(Boolean);
+
+    return match ? `https://www.youtube.com/embed/${match[1]}` : null;
+}

@@ -8,9 +8,9 @@ export default function Galeria({ movies, categories, years, filters, loading, u
 
     return (
         <>
-            <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="mb-6 flex flex-col gap-4 rounded border border-zinc-200 bg-white/80 p-5 shadow-sm md:flex-row md:items-end md:justify-between">
                 <div>
-                    <p className="text-sm font-semibold uppercase tracking-wide text-red-700">Galeria</p>
+                    <p className="page-label">Galeria</p>
                     <h1 className="mt-1 text-3xl font-bold">Filmes cadastrados</h1>
                     <p className="mt-2 text-sm text-zinc-600">
                         {movies.length} {movies.length === 1 ? 'filme encontrado' : 'filmes encontrados'}
@@ -66,7 +66,7 @@ function MovieCard({ movie, openMovie }) {
 
     return (
         <article
-            className="group overflow-hidden rounded border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+            className="group overflow-hidden rounded border border-zinc-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:border-red-200 hover:shadow-lg"
             role="button"
             tabIndex="0"
             onClick={() => openMovie(movie)}
@@ -76,7 +76,7 @@ function MovieCard({ movie, openMovie }) {
                 {src ? (
                     <img
                         alt={`Capa do filme ${movie.name}`}
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
                         src={src}
                         onError={(event) => {
                             event.currentTarget.style.display = 'none';

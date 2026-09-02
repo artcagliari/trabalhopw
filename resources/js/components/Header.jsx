@@ -3,15 +3,15 @@ import React from 'react';
 
 export default function Header({ user, view, setView, logout }) {
     return (
-        <header className="border-b border-zinc-200 bg-white">
+        <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/95 shadow-sm backdrop-blur">
             <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
                 <button className="flex items-center gap-2 text-left" onClick={() => setView('gallery')}>
-                    <span className="flex h-10 w-10 items-center justify-center rounded bg-red-700 text-white">
+                    <span className="flex h-11 w-11 items-center justify-center rounded bg-zinc-950 text-red-100 shadow-sm">
                         <Clapperboard size={22} />
                     </span>
                     <span>
-                        <strong className="block text-lg">Cine PW</strong>
-                        <span className="text-sm text-zinc-500">Gerenciamento de filmes</span>
+                        <strong className="block text-xl leading-6">Cine PW</strong>
+                        <span className="text-sm text-zinc-500">{user ? `Logado como ${user.name}` : 'Gerenciamento de filmes'}</span>
                     </span>
                 </button>
 

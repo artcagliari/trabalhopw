@@ -2,21 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    body {
+        @apply bg-zinc-100 text-zinc-950 antialiased;
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 244, 245, 0.96)),
+            repeating-linear-gradient(90deg, rgba(39, 39, 42, 0.035) 0 1px, transparent 1px 96px);
+    }
+
+    ::selection {
+        @apply bg-red-200 text-red-950;
+    }
+}
+
 @layer components {
     .btn-primary {
-        @apply inline-flex h-10 items-center gap-2 rounded bg-red-700 px-4 text-sm font-semibold text-white transition hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-offset-2;
+        @apply inline-flex h-10 items-center gap-2 rounded bg-red-700 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-red-800 hover:shadow focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
     }
 
     .btn-muted {
-        @apply inline-flex h-10 items-center gap-2 rounded border border-zinc-300 bg-white px-4 text-sm font-semibold text-zinc-700 transition hover:bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2;
+        @apply inline-flex h-10 items-center gap-2 rounded border border-zinc-300 bg-white px-4 text-sm font-semibold text-zinc-700 shadow-sm transition hover:border-zinc-400 hover:bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-45;
     }
 
     .btn-icon {
-        @apply inline-flex h-9 w-9 items-center justify-center rounded border border-zinc-300 bg-white text-zinc-700 transition hover:bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2;
+        @apply inline-flex h-9 w-9 items-center justify-center rounded border border-zinc-300 bg-white text-zinc-700 shadow-sm transition hover:border-zinc-400 hover:bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2;
     }
 
     .btn-icon-danger {
-        @apply inline-flex h-9 w-9 items-center justify-center rounded border border-red-200 bg-red-50 text-red-700 transition hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2;
+        @apply inline-flex h-9 w-9 items-center justify-center rounded border border-red-200 bg-red-50 text-red-700 shadow-sm transition hover:border-red-300 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2;
+    }
+
+    .panel {
+        @apply rounded border border-zinc-200 bg-white/95 shadow-sm;
+    }
+
+    .page-label {
+        @apply text-sm font-semibold uppercase tracking-wide text-red-700;
     }
 
     .field {
@@ -24,12 +45,24 @@
     }
 
     .field span {
-        @apply mb-1 block text-sm font-semibold text-zinc-700;
+        @apply mb-1.5 block text-sm font-semibold text-zinc-700;
     }
 
     .field input,
     .field select,
     .field textarea {
-        @apply w-full rounded border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 shadow-sm focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600;
+        @apply w-full rounded border border-zinc-300 bg-white px-3 py-2.5 text-sm text-zinc-900 shadow-sm transition placeholder:text-zinc-400 focus:border-red-600 focus:outline-none focus:ring-2 focus:ring-red-100;
+    }
+
+    .field textarea {
+        @apply resize-y leading-6;
+    }
+
+    .table-header {
+        @apply bg-zinc-900 text-xs uppercase tracking-wide text-zinc-100;
+    }
+
+    .table-row {
+        @apply transition hover:bg-zinc-50;
     }
 }

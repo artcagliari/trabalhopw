@@ -7,10 +7,10 @@ export default function Admin({ movies, categories, editingMovie, setEditingMovi
 
     return (
         <div className="grid gap-6 lg:grid-cols-[420px_1fr]">
-            <section className="rounded border border-zinc-200 bg-white p-5 shadow-sm">
+            <section className="panel p-5">
                 <div className="mb-5 flex items-center justify-between">
                     <div>
-                        <p className="text-sm font-semibold uppercase tracking-wide text-red-700">Administracao</p>
+                        <p className="page-label">Administracao</p>
                         <h1 className="mt-1 text-2xl font-bold">{editingMovie ? 'Editar filme' : 'Novo filme'}</h1>
                     </div>
                     {editingMovie && (
@@ -63,7 +63,7 @@ export default function Admin({ movies, categories, editingMovie, setEditingMovi
                 </form>
             </section>
 
-            <section className="rounded border border-zinc-200 bg-white shadow-sm">
+            <section className="panel overflow-hidden">
                 <div className="border-b border-zinc-200 p-5">
                     <h2 className="text-xl font-bold">Filmes cadastrados</h2>
                 </div>
@@ -73,7 +73,7 @@ export default function Admin({ movies, categories, editingMovie, setEditingMovi
                 ) : (
                     <div className="overflow-x-auto">
                         <table className="w-full min-w-[720px] text-left text-sm">
-                            <thead className="bg-zinc-50 text-xs uppercase tracking-wide text-zinc-500">
+                            <thead className="table-header">
                                 <tr>
                                     <th className="px-4 py-3">Filme</th>
                                     <th className="px-4 py-3">Ano</th>
@@ -84,7 +84,7 @@ export default function Admin({ movies, categories, editingMovie, setEditingMovi
                             </thead>
                             <tbody className="divide-y divide-zinc-200">
                                 {movies.map((movie) => (
-                                    <tr key={movie.id}>
+                                    <tr key={movie.id} className="table-row">
                                         <td className="px-4 py-3 font-medium">{movie.name}</td>
                                         <td className="px-4 py-3">{movie.year}</td>
                                         <td className="px-4 py-3">{movie.category?.name}</td>

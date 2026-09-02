@@ -5,7 +5,7 @@ export default function AuthForms({ handleAuth }) {
     const [mode, setMode] = useState('login');
 
     return (
-        <div className="mx-auto max-w-md rounded border border-zinc-200 bg-white p-6 shadow-sm">
+        <div className="panel mx-auto max-w-md p-6">
             <div className="mb-5 flex rounded bg-zinc-100 p-1">
                 <button className={tabClass(mode === 'login')} onClick={() => setMode('login')}>Entrar</button>
                 <button className={tabClass(mode === 'register')} onClick={() => setMode('register')}>Criar conta</button>
